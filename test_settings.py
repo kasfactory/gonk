@@ -123,6 +123,7 @@ STATIC_ROOT = 'static'
 
 # Celery
 CELERY_BACKEND = 'memory'
+CELERY_BROKER_URL = 'memory://localhost:8000//'
 CELERY_TIME_ZONE = TIME_ZONE
 AUTH_USER_MODEL = 'auth.User'
 

@@ -20,7 +20,7 @@ jobs:
         with:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Setup dependencies
-        run: poetry install
+        run: poetry install -E drf -E mercure -E persistance
       - name: Run tests
         env:
           DJANGO_SETTINGS_MODULE: test_settings

@@ -221,7 +221,7 @@ class MyTaskRunner(MercureNotificationMixin, TaskRunner):
 
 ### Clone repository
 ```bash
-git clone git@gitlab.com:kas-factory/packages/gonk.git && cd gonk
+git clone git@github.com:kasfactory/gonk.git.git && cd gonk
 ```
 
 ### Install poetry

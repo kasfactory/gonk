@@ -1,8 +1,21 @@
 [tool.poetry]
 name = "gonk"
-version = "0.4.4"
+version = "0.5.0"
 description = ""
 authors = ["Francisco Javier Lendinez Tirado <lendinez@kasfactory.net>", "Pablo Moreno <pablo@kasfactory.net>"]
+license = "BSD-3-Clause"
+readme = "README.md"
+keywords = ["celery", "tasks"]
+homepage = "https://github.com/kasfactory/gonk"
+exclude = ["test_app/**"]
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Django :: 3.2",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"

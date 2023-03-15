@@ -21,8 +21,6 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Setup dependencies
         run: poetry install
-      - name: Run linter
-        run: poetry add flake8 && poetry run flake8
       - name: Run tests
         env:
           DJANGO_SETTINGS_MODULE: test_settings

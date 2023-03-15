@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  redis:
+    container_name: gonk_redis
+    image: redis:latest
+    ports:
+      - "12312:6379"

@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "gonk"
+version = "0.4.4"
+description = ""
+authors = ["Francisco Javier Lendinez Tirado <lendinez@kasfactory.net>", "Pablo Moreno <pablo@kasfactory.net>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+celery = "^5.0.0"
+Django = "^3.0.0"
+python-dateutil = "^2.8.2"
+PyJWT = { version = "^1.5.0", optional = true }
+requests = { version = "^2.0.0", optional = true }
+djangorestframework = { version = "^3.0.0", optional = true }
+django-celery-beat = { version = "^2.3.0", optional = true }
+flake8 = "^6.0.0"
+
+[tool.poetry.dev-dependencies]
+redis = "^4.3.3"
+pytest = "^7.1.2"
+pytest-django = "^4.5.2"
+coverage = "^6.4.1"
+pytest-cov = "^3.0.0"
+
+[tool.poetry.extras]
+mercure = ["PyJWT", "requests"]
+drf = ["djangorestframework"]
+persistance = ["django-celery-beat"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

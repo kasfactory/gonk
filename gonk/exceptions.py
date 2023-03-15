@@ -1,0 +1,2 @@
+class TaskRunnerValidationException(Exception):
+    pass

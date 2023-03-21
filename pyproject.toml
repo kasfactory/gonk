@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gonk"
-version = "0.5.1"
+version = "0.5.2"
 description = "Celery tasks for Django made easy"
 authors = ["Francisco Javier Lendinez Tirado <lendinez@kasfactory.net>", "Pablo Moreno <pablo@kasfactory.net>"]
 license = "BSD-3-Clause"

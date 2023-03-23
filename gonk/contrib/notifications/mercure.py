@@ -57,10 +57,17 @@ def get_jwt_token(subscribe_targets: list, publish_targets: list) -> str:
 
 
 class MercureNotificationMixin:
+    def get_username(self):
+        return self.task.username if self.task.username else settings.DEFAULT_NOTIFICATION_EMAIL
+
+    def get_topic_name(self):
+        username = self.get_username()
+        return f'gonk-event-{username}-{self.task.celery_id}'
+
     def notify(self, data):
         if settings.MERCURE_HUB_URL:
-            username = self.task.username if self.task.username else settings.DEFAULT_NOTIFICATION_EMAIL
-            topic = f'gonk-event-{username}-{self.task.celery_id}'
+            username = self.get_username()
+            topic = self.get_topic_name()
 
             t = Thread(target=publish_event, args=(topic, [topic, username], data))
             t.start()

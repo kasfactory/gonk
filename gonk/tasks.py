@@ -42,6 +42,7 @@ def execute(task_id, func):
 def runner_func(task):
     task.status = TaskStatusChoices.DOING
     task.started_on = timezone.now()
+    task.save()
     task.get_taskrunner().run()
     task.finished_on = timezone.now()
     task.status = TaskStatusChoices.DONE
@@ -51,6 +52,7 @@ def runner_func(task):
 def reverter_func(task):
     task.status = TaskStatusChoices.REVERTING
     task.revert_started_on = timezone.now()
+    task.save()
     task.get_taskrunner().revert()
     task.revert_finished_on = timezone.now()
     task.status = TaskStatusChoices.REVERTED
@@ -61,6 +63,7 @@ def retry_func(task):
     task.status = TaskStatusChoices.RETRYING
     task.retries += 1
     task.started_on = timezone.now()
+    task.save()
     task.get_taskrunner().retry()
     task.finished_on = timezone.now()
     task.status = TaskStatusChoices.DONE

@@ -44,7 +44,7 @@ def get_jwt_token(subscribe_targets: list, publish_targets: list) -> str:
     Creates a Mercure JWT token with the subscribe and publish targets.
     The JWT token gets signed with a key shared with the Mercure Hub.
     """
-    return jwt.encode(
+    token = jwt.encode(
         {
             'mercure': {
                 'subscribe': subscribe_targets,
@@ -53,7 +53,9 @@ def get_jwt_token(subscribe_targets: list, publish_targets: list) -> str:
         },
         settings.MERCURE_JWT_KEY,
         algorithm='HS256'
-    ).decode('utf-8')
+    )
+    # Depends of the version, jwt can respond with bytes or str
+    return token.decode('utf-8') if getattr(token, 'decode') else token
 
 
 class MercureNotificationMixin:
